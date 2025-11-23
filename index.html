@@ -1,76 +1,134 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <style>
-      body {
-        background-color: lightblue;
-        text-align: center;
-      }
-      
-      .lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-  </style>
-</head>
-<body>
-  <script>
-    const AS_URL_BASE = "https://script.google.com/macros/s/AKfycbzq7aPsyl2DAX8I23PNse0M2E4kmnIj1ir8iK5DhUYUlBju68mL-ASZnr51tDAkaIGhzg/exec";
-    
-    var url = document.location.href;
-    var k = url.substr(url.lastIndexOf("k=")+2);
-    
-    if(k){
-      fetch(AS_URL_BASE+'?k='+k)
-      .then(r => r.text())
-      .then((r) => {
-        console.log(r);
-        //document.write(r);
-        if(r){
-          document.location.replace(r);
-        }
-      })
-      .catch(err => console.log(err))
-    }
-
-  </script>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>DM TOURS - Agencia de Viajes</title>
+      <link rel="stylesheet" href="styles.css">
+      <style>
+          body {
+              font-family: 'Helvetica', sans-serif;
+              margin: 0;
+              padding: 0;
+              background-color: #f8f9fa;
+              color: #212529;
+          }
+          header {
+              background-color: #007bff; /* Azul */
+              color: #ffffff;
+              padding: 20px 0;
+              text-align: center;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+          nav {
+              margin: 15px 0;
+          }
+          nav a {
+              margin: 0 15px;
+              color: #ffffff;
+              text-decoration: none;
+              font-weight: bold;
+              transition: color 0.3s;
+          }
+          nav a:hover {
+              color: #ffc107; /* Amarillo */
+          }
+          .container {
+              width: 85%;
+              margin: auto;
+              padding: 20px;
+          }
+          footer {
+              text-align: center;
+              padding: 15px 0;
+              background: #343a40; /* Gris oscuro */
+              color: #ffffff;
+              margin-top: 20px;
+          }
+          .services {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              margin: 20px 0;
+          }
+          .service {
+              background: #ffffff;
+              padding: 15px;
+              border-radius: 10px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              flex: 1 1 calc(30% - 20px);
+              margin: 10px;
+              transition: transform 0.3s;
+          }
+          .service:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+          .highlight {
+              background: #ffc107; /* Amarillo */
+              padding: 20px;
+              border-radius: 10px;
+              margin: 20px 0;
+              text-align: center;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          h2 {
+              color: #007bff; /* Azul */
+          }
+      </style>
+  </head>
+  <body>
+      <header>
+          <h1>Bienvenido a DM TOURS</h1>
+          <nav>
+              <a href="#about">Sobre Nosotros</a>
+              <a href="#services">Servicios</a>
+              <a href="#zacatlan">Zacatlán</a>
+              <a href="#contact">Contacto</a>
+          </nav>
+      </header>
   
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+      <div class="container">
+          <section id="about">
+              <h2>Sobre Nosotros</h2>
+              <p>En DM TOURS, ofrecemos las mejores experiencias de viaje a destinos increíbles. Nuestro equipo está dedicado a hacer de tus vacaciones una experiencia inolvidable.</p>
+          </section>
   
+          <section id="services">
+              <h2>Nuestros Servicios</h2>
+              <div class="services">
+                  <div class="service">
+                      <h3>Paquetes Turísticos</h3>
+                      <p>Ofrecemos paquetes personalizados para que disfrutes de tus vacaciones al máximo.</p>
+                  </div>
+                  <div class="service">
+                      <h3>Reservas de Hoteles</h3>
+                      <p>Encuentra el alojamiento perfecto con nuestras opciones de hoteles en todo el mundo.</p>
+                  </div>
+                  <div class="service">
+                      <h3>Asesoría de Viaje</h3>
+                      <p>Nuestros expertos están aquí para ayudarte a planificar el viaje de tus sueños.</p>
+                  </div>
+              </div>
+          </section>
   
-</body>
-</html>
+          <section id="zacatlan" class="highlight">
+              <h2>¡Descubre Zacatlán de las Manzanas! 🍎</h2>
+              <p>Un pueblo mágico lleno de encanto, cascadas impresionantes y sabores inolvidables. Perfecto para una escapada de fin de semana en pareja o familia, hasta un tour completo.</p>
+              <p><strong>¡Atención agencias turísticas!</strong></p>
+              <p>Ofrecemos paquetes especiales para grupos; desde el transporte hasta las actividades y el alojamiento. Contáctanos y hagamos magia juntos. ✨</p>
+              <p>Teléfonos: 7971139686, 7971402817</p>
+              <p>#Zacatlán #Puebla #PueblosMágicos #DMtours</p>
+          </section>
+  
+          <section id="contact">
+              <h2>Contacto</h2>
+              <p>Puedes contactarnos a través de nuestro correo electrónico: info@dmtours.com</p>
+          </section>
+      </div>
+  
+      <footer>
+          <p>&copy; 2025 DM TOURS. Todos los derechos reservados.</p>
+      </footer>
+  </body>
+  </html>
